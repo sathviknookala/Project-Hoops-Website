@@ -19,7 +19,7 @@ const SignUpForm = () => {
 
     try {
       const response = await fetch(
-        "GOOGLE_APPS_SCRIPT_WEB_APP_URL", 
+        "https://script.google.com/macros/s/AKfycbwfpE_EjcNgNcVZpG_tbMsyHidvqtt2o3zlQ46n6_FT_QaOhjZ69bL5264Rd3spqH2DVQ/exec", 
         {
           method: "POST",
           headers: {
@@ -29,10 +29,13 @@ const SignUpForm = () => {
         }
       );
 
+      console.log(response);
       if (response.ok) {
-        alert("Your Sign Up has been recorded!");
+        alert("Your sign up has been recorded!");
         setFormData({ name: "", email: "", team: "", division: "" });
       } else {
+        const errorText = await response.text();
+        console.log("Error details:", errorText);
         alert("Failed to submit. Please try again.");
       }
     } catch (error) {
@@ -43,6 +46,9 @@ const SignUpForm = () => {
 
   return (
     <form className="signup-form" onSubmit={handleSubmit}>
+      <p style={{ textAlign: "center", padding: "20px" }}>
+        We are currently accepting sign ups for the 2025 Project Hoops Tournament 
+      </p>
       <label>
         Name:
         <input
@@ -91,7 +97,6 @@ const SignUpForm = () => {
           <option value="Division II (Recreational)">Division II (Recreational)</option>
         </select>
       </label>
-
       <button type="submit">Sign Up</button>
     </form>
   );
