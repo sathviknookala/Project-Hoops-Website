@@ -27,6 +27,7 @@ const SignUpForm = () => {
       formDataToSend.append('Team', formData.team);
       formDataToSend.append('Division', formData.division);
 
+      console.log(formDataToSend.get("Division"));
       const response = await fetch(
         "https://script.google.com/macros/s/AKfycbyZ6aM_5USGv04-nKm3Z4EB1osxEQRnYdbwgRQonxffA3rdQpkNceNkbxmJoiHW0Xj5mg/exec", 
         {
