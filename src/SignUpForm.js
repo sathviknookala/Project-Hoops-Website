@@ -28,7 +28,7 @@ const SignUpForm = () => {
       formDataToSend.append('Division', formData.division);
 
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxc5SGd_hT8X0fPzRRUV8bfarZUZrkSZc2NdA-bj_QVir-Mr-ltc6BXp1rhByrEENX-NA/exec", 
+        "https://script.google.com/macros/s/AKfycbyZ6aM_5USGv04-nKm3Z4EB1osxEQRnYdbwgRQonxffA3rdQpkNceNkbxmJoiHW0Xj5mg/exec", 
         {
           method: "POST",
           body: formDataToSend,
