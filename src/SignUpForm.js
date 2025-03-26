@@ -21,9 +21,11 @@ const SignUpForm = () => {
 
     try {
       const formDataToSend = new URLSearchParams();
-      Object.entries(formData).forEach(([key, value]) => {
-        formDataToSend.append(key, value);
-      });
+      formDataToSend.append('Timestamp', new Date().toISOString());
+      formDataToSend.append('Name', formData.name);
+      formDataToSend.append('Email', formData.email);
+      formDataToSend.append('Team', formData.team);
+      formDataToSend.append('Division', formData.division);
 
       const response = await fetch(
         "https://script.google.com/macros/s/AKfycbwfpE_EjcNgNcVZpG_tbMsyHidvqtt2o3zlQ46n6_FT_QaOhjZ69bL5264Rd3spqH2DVQ/exec", 
@@ -41,6 +43,7 @@ const SignUpForm = () => {
       
     } catch (error) {
       console.error("Error during form submission:", error);
+      errorLog.push(error.message);
       alert("There was an error. Please try again.");
     }
   };
