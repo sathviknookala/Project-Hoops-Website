@@ -20,28 +20,25 @@ const SignUpForm = () => {
     e.preventDefault();
 
     try {
+      const formDataToSend = new URLSearchParams();
+      Object.entries(formData).forEach(([key, value]) => {
+        formDataToSend.append(key, value);
+      });
+
       const response = await fetch(
         "https://script.google.com/macros/s/AKfycbwfpE_EjcNgNcVZpG_tbMsyHidvqtt2o3zlQ46n6_FT_QaOhjZ69bL5264Rd3spqH2DVQ/exec", 
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-          mode: "no-cors",
+          body: formDataToSend,
+          mode: "no-cors"
         }
       );
 
-      console.log(response);
-      if (response.ok) {
-        alert("Your sign up has been recorded!");
-        setFormData({ name: "", email: "", team: "", division: "" });
-      } else {
-        const errorText = await response.text();
-        console.log("Error details:", errorText);
-        errorLog.push(errorText);
-        alert("Failed to submit. Please try again.");
-      }
+      // Since we're using no-cors, we won't get a proper response.ok
+      // Instead, if we reach here without an error, consider it successful
+      alert("Your sign up has been recorded!");
+      setFormData({ name: "", email: "", team: "", division: "" });
+      
     } catch (error) {
       console.error("Error during form submission:", error);
       alert("There was an error. Please try again.");
