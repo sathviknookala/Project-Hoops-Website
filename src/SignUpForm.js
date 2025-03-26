@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./SignUpForm.css"; 
 
+const errorLog = [];
+
 const SignUpForm = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -20,8 +22,7 @@ const SignUpForm = () => {
     try {
       const response = await fetch(
         "https://script.google.com/macros/s/AKfycbwfpE_EjcNgNcVZpG_tbMsyHidvqtt2o3zlQ46n6_FT_QaOhjZ69bL5264Rd3spqH2DVQ/exec", 
-        
-        "https://script.google.com/macros/s/AKfycbyq4trPLMZ6DKvC7tYKs8kZeK2-h7lHFwpgU2tQBJe9yrRy9Y4lQ4HoMYL8RSi02DbNNQ/exec", {
+        {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -38,6 +39,7 @@ const SignUpForm = () => {
       } else {
         const errorText = await response.text();
         console.log("Error details:", errorText);
+        errorLog.push(errorText);
         alert("Failed to submit. Please try again.");
       }
     } catch (error) {
