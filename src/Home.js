@@ -13,8 +13,8 @@ function Home() {
     backgroundImage: `url(${process.env.PUBLIC_URL + heroImages[Math.floor(Math.random() * 3)]})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    height: '100vh', /* Set height to full viewport */
-    margin: '0', /* Remove margin to allow full width */
+    height: '100vh', 
+    margin: '0', 
     fontFamily: 'Helvetica Neue, sans-serif'
   };
 

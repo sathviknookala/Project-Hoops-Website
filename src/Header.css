@@ -24,7 +24,7 @@
     width: auto;
   }
   
-  
+
   .header-nav {
     display: flex;
     justify-content: flex-end; 
@@ -33,7 +33,7 @@
     padding: 0;
   }
   
-  /* Navigation links */
+  /* Navigation lines */
   .nav-links {
     list-style: none;
     display: flex;
