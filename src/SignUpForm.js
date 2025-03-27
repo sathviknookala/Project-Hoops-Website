@@ -28,8 +28,9 @@ const SignUpForm = () => {
       formDataToSend.append('Division', formData.division);
 
       console.log(formDataToSend.get("Division"));
+      console.log(formDataToSend.get("Name"));
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbyZ6aM_5USGv04-nKm3Z4EB1osxEQRnYdbwgRQonxffA3rdQpkNceNkbxmJoiHW0Xj5mg/exec", 
+        process.env.REACT_APP_GOOGLE_SCRIPT_URL, 
         {
           method: "POST",
           body: formDataToSend,
