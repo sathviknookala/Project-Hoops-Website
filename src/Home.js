@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 function Home() {
   const heroImages = [
-    "/KEV_6811.JPG",
-    "/KEV_6841.JPG",
-    "/KEV_6901.JPG",
+    "/KEV_6811.jpg",
+    "/KEV_6841.jpg",
+    "/KEV_6901.jpg",
   ];
 
   const backgroundStyle = {
