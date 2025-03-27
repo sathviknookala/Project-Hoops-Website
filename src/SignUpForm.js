@@ -27,8 +27,6 @@ const SignUpForm = () => {
       formDataToSend.append('Team', formData.team);
       formDataToSend.append('Division', formData.division);
 
-      console.log(formDataToSend.get("Division"));
-      console.log(formDataToSend.get("Name"));
       const response = await fetch(
         process.env.REACT_APP_GOOGLE_SCRIPT_URL, 
         {

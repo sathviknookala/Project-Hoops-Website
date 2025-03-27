@@ -11,7 +11,7 @@ function App() {
     <Router>
       <div>
         <Header /> 
-        <main style={{ paddingTop: "150px", textAlign: "center" }}>
+        <main style={{ paddingTop: "100px", textAlign: "center" }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
