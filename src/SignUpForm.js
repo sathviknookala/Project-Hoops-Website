@@ -36,8 +36,7 @@ const SignUpForm = () => {
         }
       );
 
-      // Since we're using no-cors, we won't get a proper response.ok
-      // Instead, if we reach here without an error, consider it successful
+      // change this to do a better one
       alert("Your sign up has been recorded!");
       setFormData({ name: "", email: "", team: "", division: "" });
       
